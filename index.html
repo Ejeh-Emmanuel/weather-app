@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherNow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="app-title">⛅ WeatherNow</h1>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter a city name…" autocomplete="off" />
+            <button id="searchBtn">Search</button>
+            <button id="geoBtn" title="Use my location">📍</button>
+        </div>
+
+        <!-- RECENT SEARCHES — JS will fill these in dynamically -->
+        <div id="chips" class="chips">
+            <!-- Static demo chips — JS replaces these -->
+            <span class="chip">Lagos</span>
+            <span class="chip">London</span>
+            <span class="chip">New York</span>
+        </div>
+
+        <!-- LOADING & ERROR — hidden until JS triggers them -->
+        <p id="loading" class="status-msg hidden">⏳ Loading weather data…</p>
+        <p id="error" class="status-msg error hidden"></p>
+
+        <!-- ─────────────────────────────────────────────────────
+         MAIN WEATHER CARD
+         Dummy data is visible on page load so the design
+         is clear. JS targets each id and replaces the text.
+    ──────────────────────────────────────────────────────── -->
+        <div id="weatherCard" class="card">
+
+            <div class="card-top">
+                <div>
+                    <h2 id="cityName">Lagos, NG</h2>
+                    <p id="description">Partly Cloudy</p>
+                </div>
+                <img id="weatherIcon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="weather icon" />
+            </div>
+
+            <p id="temperature" class="big-temp">29°C</p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-label">Feels Like</span>
+                    <span id="feelsLike" class="stat-value">31°C</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Humidity</span>
+                    <span id="humidity" class="stat-value">78%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Wind</span>
+                    <span id="wind" class="stat-value">4.2 m/s</span>
+                </div>
+            </div>
+
+            <button id="toggleUnit" class="toggle-btn">Switch to °F</button>
+
+        </div>
+
+        <!-- ─────────────────────────────────────────────────────
+         5-DAY FORECAST
+         Dummy cards visible on load.
+         JS clears forecastGrid and rebuilds with real data.
+    ──────────────────────────────────────────────────────── -->
+        <h2 class="section-title">5-Day Forecast</h2>
+
+        <div id="forecastGrid" class="forecast-grid">
+            <!-- Static demo cards — JS replaces these -->
+            <div class="forecast-card">
+                <p class="forecast-day">Mon</p>
+                <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                <p class="forecast-temp">31°C</p>
+            </div>
+            <div class="forecast-card">
+                <p class="forecast-day">Tue</p>
+                <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+                <p class="forecast-temp">28°C</p>
+            </div>
+            <div class="forecast-card">
+                <p class="forecast-day">Wed</p>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+                <p class="forecast-temp">25°C</p>
+            </div>
+            <div class="forecast-card">
+                <p class="forecast-day">Thu</p>
+                <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="">
+                <p class="forecast-temp">27°C</p>
+            </div>
+            <div class="forecast-card">
+                <p class="forecast-day">Fri</p>
+                <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="">
+                <p class="forecast-temp">30°C</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
